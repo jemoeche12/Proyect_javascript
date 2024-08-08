@@ -1,0 +1,33 @@
+
+section.container-icons{
+    width: 320px;
+    
+    .div-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1em;
+      padding: 0 10px;
+      .icon {
+        width: 40px;
+        padding: 10px 5px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .container-data{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 285px;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-between;
+    .title-expens{
+       font-size: 18px;
+       width: 8px;
+       }
+    .balance{
+   color: black;
+  }
+  }

@@ -4,9 +4,19 @@
   box-sizing: border-box;
 }
 
-body {
+.body {
   overflow-x: hidden;
-  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 .header {
@@ -54,6 +64,35 @@ body {
 .header .navBar .nav-menu li .nav-link:hover {
   color: black;
   background-color: none;
+}
+
+footer {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a96f3;
+}
+footer span {
+  padding: 10px 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: white;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+footer .redes-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+footer .redes-container .icon-footer {
+  width: 50px;
+  padding: 20px 0;
 }
 
 .menu {
@@ -106,45 +145,30 @@ section.container-icons {
 }
 section.container-icons .div-icons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-top: 1em;
+  padding: 0 10px;
 }
 section.container-icons .div-icons .icon {
   width: 40px;
-  padding: 10px 0;
+  padding: 10px 5px;
   margin-bottom: 30px;
 }
 
-.container-data h6 {
-  text-align: center;
-}
-
-footer {
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #2a96f3;
-}
-footer span {
-  padding: 10px 0;
-  font-family: "Bebas Neue", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  color: white;
-  font-size: 22px;
-  letter-spacing: 2px;
-}
-footer .redes-container {
-  width: 100%;
+.container-data {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 285px;
+  padding: 0 10px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-footer .redes-container .icon-footer {
-  width: 50px;
-  padding: 20px 0;
+.container-data .title-expens {
+  font-size: 18px;
+  width: 8px;
+}
+.container-data .balance {
+  color: black;
 }/*# sourceMappingURL=style.css.map */
