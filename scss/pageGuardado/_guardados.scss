@@ -7,7 +7,7 @@ section.container-icons{
       justify-content: space-between;
       align-items: center;
       margin-top: 1em;
-      padding: 0 10px;
+      padding: 0 20px;
       .icon {
         width: 40px;
         padding: 10px 5px;
@@ -19,8 +19,8 @@ section.container-icons{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 285px;
-    padding: 0 10px;
+    width: 280px;
+    padding: 0 5px;
     align-items: center;
     justify-content: space-between;
     .title-expens{
@@ -30,4 +30,9 @@ section.container-icons{
     .balance{
    color: black;
   }
+ 
+  }
+  .promedio, .disponible{
+    font-size: 20px;
+    padding-left: 5px;
   }

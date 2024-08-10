@@ -1,41 +1,15 @@
+let tarjetaViaje = JSON.parse(localStorage.getItem('tarjetaViaje')) || [];
 
 
-let vacationCalc = document.getElementById("vacationCalc")
-
-
-vacationCalc.addEventListener("submit", calcExpens)
-
-
-
-function calcExpens(e){
-    e.preventDefault();
-    let destiny = document.getElementById("destiny").value;
-    let budget = document.getElementById("budget").value;
-    let acomodation = document.getElementById("acomodation").value;
-    let transport = document.getElementById("transport").value;
-    let food = document.getElementById("food").value;
-
-    let expenses = parseInt(acomodation) + parseInt(transport) + parseInt(food);
-    let balance = parseInt(budget) - expenses;
-
-    if(balance < 0){
-        alert("estas gastando mucho, no te alcanza")
-    }else{
-        alert("todavia podes gastar un poco mas, para eso trabajaste")
-    };
-
-    UI(destiny,budget, balance);
-}
-
-function UI (destiny,budget, balance){
-    let result = document.getElementById("result");
-    let dataPrint = document.createElement("div")
+function agregarTarjeta(tarjetaViaje){
+    let guardadas = document.getElementById("guardadas");
+    tarjetaViaje = document.createElement("div")
     
-    dataPrint.innerHTML = `
+    tarjetaViaje.innerHTML = `
     
     <div class="container-data">
         <div class="title-expens">
-            <span>${destiny}</span>
+            <span>${img}</span>
         </div>
         <div class="title-expens">
             <span>${budget}</span>
@@ -46,7 +20,5 @@ function UI (destiny,budget, balance){
     </div>
     `
     
-    result.appendChild(dataPrint);
+    guardadas.appendChild(tarjetaViaje);
 }
-
-
