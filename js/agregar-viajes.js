@@ -4,7 +4,7 @@ const formulario = document.getElementById('tarjetaDestino');
 formulario.addEventListener('submit', crearTarjeta)
 
 function crearTarjeta(e) {
-    e.preventDefault(); // Evita el envío del formulario por defecto
+    e.preventDefault(); 
 
     const destiny = formulario.destiny.value;
     const budget = formulario.budget.value;
@@ -25,19 +25,18 @@ function crearTarjeta(e) {
         food: food,
         otros: otros,
         promedioDiario: promedioDiario,
-        disponible: promedioDiarioDespuesGastos
-
+        disponible: promedioDiarioDespuesGastos,
     };
 
-    let tarjetasGuardadas = [];
+    
     let tarjetaViaje = JSON.parse(localStorage.getItem('tarjetaViaje')) || []; // Obtener usuarios almacenados o crear un array vacío
     tarjetaViaje.push(nuevoDestino);
 
-    localStorage.setItem('destinos', JSON.stringify(tarjetaViaje)); // Almacenar en localStorage
+    localStorage.setItem('tarjetaViaje', JSON.stringify(tarjetaViaje)); // Almacenar en localStorage
 
     
     UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos)
-    // Aquí puedes realizar otras acciones, como enviar los datos a un servidor
+    
 };
 
 function UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos){
@@ -61,9 +60,13 @@ function UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGasto
     <h2 class="disponible">El dinero diario disponible despues de gastos es: $${promedioDiarioDespuesGastos}</h2>
     `
     if(balance < 0){
+        
         alert(`necesitas conseguir aun $${balance} para pagar las vacaciones que te mandaste`)
+        
     }else{
+        
         alert("todavia podes darte un gusto")
+        
     }
     result.appendChild(dataPrint);
 }
