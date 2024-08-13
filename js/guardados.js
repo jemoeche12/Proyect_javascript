@@ -32,7 +32,7 @@ cambiarColor();
 
 function cambiarColor() {
   let balances = document.querySelectorAll(".balanc");
-
+    
   balances.forEach((balance) => {
     let balanceValue = parseInt(balance.textContent);
 
