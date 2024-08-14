@@ -3,30 +3,32 @@ const formulario = document.getElementById('tarjetaDestino');
 
 formulario.addEventListener('click', crearTarjeta)
 
+let continuar = true;
 function crearTarjeta(e) {
     e.preventDefault(); 
 
-    const destiny = prompt('Introduce el destino:');
-    const budget = prompt('Introduce el presupuesto total:');
-    const days = prompt('Introduce la cantidad de días:');
-    const acomodation = prompt('Introduce el costo de alojamiento:');
-    const otros = prompt('Introduce otros gastos:');
-    const food = prompt('Introduce el costo de comida:');
-    let promedioDiario = Math.round(parseInt(budget) / parseInt(days));
-    let expenses = parseInt(otros) + parseInt(acomodation) + parseInt(food);
-    let balance = parseInt(budget) - expenses;
-    let promedioDiarioDespuesGastos = Math.round(parseInt(balance) / parseInt(days));
-    const nuevoDestino = {
-        destiny: destiny,
-        budget: budget,
-        days: days,
-        balance: balance,   
-        acomodation: acomodation,
-        food: food,
-        otros: otros,
-        promedioDiario: promedioDiario,
-        disponible: promedioDiarioDespuesGastos,
-    };
+    while (continuar) {const destiny = prompt('Introduce el destino:');
+        const budget = prompt('Introduce el presupuesto total:');
+        const days = prompt('Introduce la cantidad de días:');
+        const acomodation = prompt('Introduce el costo de alojamiento:');
+        const otros = prompt('Introduce otros gastos:');
+        const food = prompt('Introduce el costo de comida:');
+        let promedioDiario = Math.round(parseInt(budget) / parseInt(days));
+        let expenses = parseInt(otros) + parseInt(acomodation) + parseInt(food);
+        let balance = parseInt(budget) - expenses;
+        let promedioDiarioDespuesGastos = Math.round(parseInt(balance) / parseInt(days));
+        const nuevoDestino = {
+            destiny: destiny,
+            budget: budget,
+            days: days,
+            balance: balance,   
+            acomodation: acomodation,
+            food: food,
+            otros: otros,
+            promedioDiario: promedioDiario,
+            disponible: promedioDiarioDespuesGastos,
+        };
+    
 
     
     let tarjetaViaje = JSON.parse(localStorage.getItem('tarjetaViaje')) || [];
@@ -36,7 +38,8 @@ function crearTarjeta(e) {
 
     
     UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos)
-    
+    continuar = confirm("¿desea crear otro destino?");
+    }
 };
 
 function UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos){
