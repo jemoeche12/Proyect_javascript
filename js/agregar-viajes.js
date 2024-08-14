@@ -3,16 +3,16 @@ const formulario = document.getElementById('tarjetaDestino');
 
 formulario.addEventListener('click', crearTarjeta)
 
-let continuar = true;
+
 function crearTarjeta(e) {
     e.preventDefault(); 
-
-    while (continuar) {const destiny = prompt('Introduce el destino:');
-        const budget = prompt('Introduce el presupuesto total:');
-        const days = prompt('Introduce la cantidad de días:');
-        const acomodation = prompt('Introduce el costo de alojamiento:');
-        const otros = prompt('Introduce otros gastos:');
-        const food = prompt('Introduce el costo de comida:');
+  
+        const destiny = formulario.destiny.value;
+        const budget = formulario.budget.value;
+        const days = formulario.days.value;
+        const acomodation = formulario.acomodation.value;
+        const otros = formulario.otros.value;
+        const food = formulario.food.value;
         let promedioDiario = Math.round(parseInt(budget) / parseInt(days));
         let expenses = parseInt(otros) + parseInt(acomodation) + parseInt(food);
         let balance = parseInt(budget) - expenses;
@@ -38,9 +38,8 @@ function crearTarjeta(e) {
 
     
     UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos)
-    continuar = confirm("¿desea crear otro destino?");
-    }
-};
+    
+    };
 
 function UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos){
     let result = document.getElementById("result");
@@ -62,14 +61,6 @@ function UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGasto
     <h1 class="promedio">El dinero diario es: $${promedioDiario}</h1>
     <h2 class="disponible">El dinero diario disponible despues de gastos es: $${promedioDiarioDespuesGastos}</h2>
     `
-    if(balance < 0){
-        
-        alert(`necesitas conseguir aun $${balance} para pagar las vacaciones que te mandaste`)
-        
-    }else{
-        
-        alert("todavia podes darte un gusto")
-        
-    }
+   
     result.appendChild(dataPrint);
 }
