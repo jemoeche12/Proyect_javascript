@@ -29,10 +29,10 @@ function crearTarjeta(e) {
     };
 
     
-    let tarjetaViaje = JSON.parse(localStorage.getItem('tarjetaViaje')) || []; // Obtener usuarios almacenados o crear un array vacío
+    let tarjetaViaje = JSON.parse(localStorage.getItem('tarjetaViaje')) || []; 
     tarjetaViaje.push(nuevoDestino);
 
-    localStorage.setItem('tarjetaViaje', JSON.stringify(tarjetaViaje)); // Almacenar en localStorage
+    localStorage.setItem('tarjetaViaje', JSON.stringify(tarjetaViaje));
 
     
     UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos)
