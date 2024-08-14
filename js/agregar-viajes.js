@@ -1,17 +1,17 @@
 const formulario = document.getElementById('tarjetaDestino');
 
 
-formulario.addEventListener('submit', crearTarjeta)
+formulario.addEventListener('click', crearTarjeta)
 
 function crearTarjeta(e) {
     e.preventDefault(); 
 
-    const destiny = formulario.destiny.value;
-    const budget = formulario.budget.value;
-    const days = formulario.days.value;
-    const acomodation = formulario.acomodation.value;
-    const otros = formulario.otros.value;
-    const food = formulario.food.value;
+    const destiny = prompt('Introduce el destino:');
+    const budget = prompt('Introduce el presupuesto total:');
+    const days = prompt('Introduce la cantidad de días:');
+    const acomodation = prompt('Introduce el costo de alojamiento:');
+    const otros = prompt('Introduce otros gastos:');
+    const food = prompt('Introduce el costo de comida:');
     let promedioDiario = Math.round(parseInt(budget) / parseInt(days));
     let expenses = parseInt(otros) + parseInt(acomodation) + parseInt(food);
     let balance = parseInt(budget) - expenses;
@@ -29,10 +29,10 @@ function crearTarjeta(e) {
     };
 
     
-    let tarjetaViaje = JSON.parse(localStorage.getItem('tarjetaViaje')) || []; // Obtener usuarios almacenados o crear un array vacío
+    let tarjetaViaje = JSON.parse(localStorage.getItem('tarjetaViaje')) || [];
     tarjetaViaje.push(nuevoDestino);
 
-    localStorage.setItem('tarjetaViaje', JSON.stringify(tarjetaViaje)); // Almacenar en localStorage
+    localStorage.setItem('tarjetaViaje', JSON.stringify(tarjetaViaje)); 
 
     
     UI (destiny,budget, balance, promedioDiario, promedioDiarioDespuesGastos)
