@@ -19,7 +19,7 @@ tarjetaViaje.forEach((nuevoDestino) => {
             </div>
             <div class="item-card">
                 <h3>Disponible diario despues de gastos:</h3> <strong>$<span class="balanc">${
-              nuevoDestino.disponible
+              nuevoDestino.promedioDiarioDespuesGastos
             }   </strong></span>
             </div>
         </article>
