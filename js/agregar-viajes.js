@@ -28,12 +28,14 @@
                 this.acomodation = acomodation,
                 this.otros = otros,
                 this.food = food,
-                this.expenses = expenses,
+                
                 this.balance = balance,
                 this.promedioDiario = promedioDiario,
                 this.promedioDiarioDespuesGastos = promedioDiarioDespuesGastos
             }
-          
+          expenses(){
+            this.acomodation + this.otros + this.food;
+          }
           }         
 
           const nuevoDestino = new NuevoDestino(destiny, budget, days, acomodation, otros, food, expenses, balance, promedioDiario, promedioDiarioDespuesGastos);
