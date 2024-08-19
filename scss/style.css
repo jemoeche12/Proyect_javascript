@@ -296,10 +296,6 @@ section.button-card .buttonTarjeta:hover {
   padding: 10px 5px;
   background-color: #2a96f3;
   height: 800px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/assets/img/fondo.avif);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 .sectionForm h2 {
   margin-top: -270px;
@@ -385,6 +381,20 @@ section.button-card .buttonTarjeta:hover {
   color: cyan;
   font-weight: 600;
   font-family: "Bebas Neue", sans-serif;
+}
+
+.login {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/assets/img/fondo3.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.registro {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/assets/img/fondo2.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 section.home {
