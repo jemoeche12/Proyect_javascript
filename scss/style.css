@@ -219,4 +219,118 @@ section.container-icons .div-icons .icon {
   border: none;
   background-color: #2a96f3;
   margin-bottom: 15px;
+}
+
+.card2-container {
+  width: 320px;
+  margin-top: 0;
+}
+.card2-container h2.title {
+  font-size: 18px;
+  text-align: center;
+  background-color: cadetblue;
+  padding: 7px;
+  margin-top: 0;
+}
+.card2-container .list-button-card {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  align-items: center;
+}
+.card2-container .list-button-card .item-card-viaje {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card2-container .list-button-card .item-card-viaje h3 {
+  font-size: 18px;
+}
+
+section.button-card {
+  display: grid;
+  width: 320px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 33% 33% 33%;
+  gap: 10px;
+  margin: 100px 0;
+  margin-bottom: 30px;
+  align-content: center;
+  justify-items: center;
+}
+section.button-card .buttonTarjeta {
+  padding: 7px 12px;
+  width: 50%;
+  border-radius: 15px;
+  align-items: center;
+  justify-items: center;
+  border: none;
+  transition: all ease-in-out 0.6s;
+  margin-bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: 600;
+}
+section.button-card .buttonTarjeta:hover {
+  background-color: darkcyan;
+  box-shadow: 0 0 5px black;
+  color: white;
+}
+
+.button-editar {
+  margin: 55px 0;
+  margin-left: 15%;
+  padding: 7px;
+}
+
+.sectionForm {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+  background-color: #2A96F3;
+  height: 100%;
+}
+.sectionForm h2 {
+  padding: 15px 0;
+  font-size: 32px;
+}
+.sectionForm #loginForm, .sectionForm #registroForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  color: white;
+  border-radius: 15px;
+  padding: 15px 5px;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.sectionForm #loginForm label, .sectionForm #registroForm label {
+  padding: 15px 5px;
+}
+.sectionForm #loginForm input, .sectionForm #registroForm input {
+  padding: 15px 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+.sectionForm #loginForm input#ingresar, .sectionForm #loginForm #registro, .sectionForm #registroForm input#ingresar, .sectionForm #registroForm #registro {
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.sectionForm p {
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
+}
+.sectionForm p a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,51 @@
+.sectionForm{
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    background-color: #2A96F3;
+    height: 100%;
+    h2{
+        padding: 15px 0;
+        font-size: 32px;
+    } 
+    #loginForm, #registroForm{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+        color: white;
+        border-radius: 15px;
+        padding: 15px 5px;
+        margin: 10px 0;
+        font-size: 18px;
+        font-weight: 600;
+        label{
+            padding: 15px 5px;
+        }
+        input{
+            padding: 15px 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        input#ingresar,#registro{
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+    }
+    p{
+        font-size: 18px;
+        color: black;
+        font-weight: 500;
+        a{
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+        }
+    }
+}
