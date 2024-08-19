@@ -19,8 +19,12 @@ li {
   list-style: none;
 }
 
+h2 {
+  margin: 0;
+}
+
 .header {
-  width: 320px;
+  width: 100%;
 }
 .header .navBar {
   width: 100%;
@@ -29,7 +33,7 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   background-color: #2a96f3;
   overflow-y: hidden;
   padding: 0 5%;
@@ -67,7 +71,7 @@ li {
 }
 
 footer {
-  width: 320px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +101,7 @@ footer .redes-container .icon-footer {
 
 .menu {
   margin-top: 10px;
-  width: 320px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,7 +145,7 @@ footer .redes-container .icon-footer {
 }
 
 section.container-icons {
-  width: 320px;
+  width: 100%;
 }
 section.container-icons .div-icons {
   display: flex;
@@ -160,7 +164,7 @@ section.container-icons .div-icons .icon {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 280px;
+  width: 80%;
   padding: 0 5px;
   align-items: center;
   justify-content: space-between;
@@ -179,8 +183,8 @@ section.container-icons .div-icons .icon {
 }
 
 .card-container {
-  width: 310px;
-  margin: 15px 5px;
+  width: 90%;
+  margin: 15px 5%;
   border: 2px solid black;
   box-shadow: 0 0 4px black;
 }
@@ -222,7 +226,7 @@ section.container-icons .div-icons .icon {
 }
 
 .card2-container {
-  width: 320px;
+  width: 100%;
   margin-top: 0;
 }
 .card2-container h2.title {
@@ -249,7 +253,7 @@ section.container-icons .div-icons .icon {
 
 section.button-card {
   display: grid;
-  width: 320px;
+  width: 100%;
   grid-template-columns: 50% 50%;
   grid-template-rows: 33% 33% 33%;
   gap: 10px;
@@ -284,53 +288,176 @@ section.button-card .buttonTarjeta:hover {
 }
 
 .sectionForm {
-  width: 320px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 10px 5px;
-  background-color: #2A96F3;
-  height: 100%;
+  background-color: #2a96f3;
+  height: 800px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/assets/img/fondo.avif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .sectionForm h2 {
+  margin-top: -270px;
   padding: 15px 0;
   font-size: 32px;
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 2px;
 }
-.sectionForm #loginForm, .sectionForm #registroForm {
+.sectionForm #loginForm,
+.sectionForm #registroForm {
+  font-family: "Bebas Neue", sans-serif;
   width: 100%;
+  letter-spacing: 1px;
   display: flex;
   flex-direction: column;
   background-color: transparent;
   color: white;
   border-radius: 15px;
-  padding: 15px 5px;
+  padding: 10px 5px;
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
 }
-.sectionForm #loginForm label, .sectionForm #registroForm label {
+.sectionForm #loginForm label,
+.sectionForm #registroForm label {
   padding: 15px 5px;
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 26px;
 }
-.sectionForm #loginForm input, .sectionForm #registroForm input {
+.sectionForm #loginForm input,
+.sectionForm #registroForm input {
   padding: 15px 5px;
   margin-bottom: 15px;
   border-radius: 5px;
-}
-.sectionForm #loginForm input#ingresar, .sectionForm #loginForm #registro, .sectionForm #registroForm input#ingresar, .sectionForm #registroForm #registro {
+  background-color: transparent;
   border: none;
+  border-bottom: 2px solid white;
+}
+.sectionForm #loginForm input::-moz-placeholder, .sectionForm #registroForm input::-moz-placeholder {
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+}
+.sectionForm #loginForm input::placeholder,
+.sectionForm #registroForm input::placeholder {
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+}
+.sectionForm #loginForm input#ingresar,
+.sectionForm #loginForm #registro,
+.sectionForm #registroForm input#ingresar,
+.sectionForm #registroForm #registro {
+  border: 1px solid white;
   border-radius: 5px;
-  margin: 5px 0;
+  margin: 5px 25%;
   font-weight: 600;
   letter-spacing: 2px;
+  color: white;
+  font-size: 20px;
+  width: 50%;
+  transition: all ease-in-out 0.5s;
+}
+.sectionForm #loginForm input#ingresar:hover,
+.sectionForm #loginForm #registro:hover,
+.sectionForm #registroForm input#ingresar:hover,
+.sectionForm #registroForm #registro:hover {
+  background-color: rgba(26, 173, 139, 0.4);
+  color: white;
 }
 .sectionForm p {
-  font-size: 18px;
-  color: black;
-  font-weight: 500;
+  font-size: 22px;
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 .sectionForm p a {
   text-decoration: none;
+  letter-spacing: 2px;
+  color: cyan;
+  font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+section.home {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(/assets/img/fondo.avif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+section.home h2.title-home {
+  font-size: 32px;
+  padding: 15px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 2px;
+  padding-top: 15%;
+  text-align: start;
+  position: relative;
   color: white;
-  font-weight: 500;
+  text-shadow: 0 0 3px black;
+}
+section.home .home-parrafo {
+  width: 80%;
+  font-family: "Bebas Neue", sans-serif;
+  padding: 15px;
+  font-size: 30px;
+  letter-spacing: 1px;
+  padding-top: 30%;
+  position: relative;
+  color: white;
+  text-shadow: 0 0 3px black;
+  text-transform: uppercase;
+  transition: all ease-in-out 0.5s;
+}
+section.home button {
+  background: rgba(26, 173, 139, 0.4);
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 60px;
+  margin-top: 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-left: 60%;
+  font-size: 1.6em;
+  padding: 0 1.7em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+section.home button:hover {
+  background: #fff;
+  color: #1aab8a;
+}
+section.home button button:before,
+section.home button button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1aab8a;
+  transition: 400ms ease all;
+}
+section.home button button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+section.home button button:hover:before,
+section.home button button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
 }/*# sourceMappingURL=style.css.map */

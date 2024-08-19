@@ -20,6 +20,6 @@ registro.addEventListener("submit", (e) =>{
         Users.push(newUsers)
         localStorage.setItem("users", JSON.stringify(Users))
         alert("registro exitoso");
-        window.location.href = "./pages/login.html"
+        window.location.href = "./login.html"
             
 })

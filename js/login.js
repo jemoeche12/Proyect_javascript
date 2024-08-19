@@ -11,8 +11,7 @@ loginForm.addEventListener("submit", (e) =>{
         return alert("contraseña/email incorrectos");
         
     }
-    alert(`Bienvenida/o ${usuarioCorrecto.name}` )
-    window.location.href = "perfil.html"
+    window.location.href = "../index.html"
     localStorage.setItem("login-exitoso", JSON.stringify(usuarioCorrecto));
 
 })

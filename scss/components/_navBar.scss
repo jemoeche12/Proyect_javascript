@@ -1,5 +1,5 @@
 .header{
-    width: 320px;
+    width: 100%;
     .navBar {
       width: 100%;
       display: flex;
@@ -7,7 +7,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      padding-bottom: 20px;
       background-color: #2a96f3;
       overflow-y: hidden;
       padding: 0 5%;

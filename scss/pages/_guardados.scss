@@ -1,6 +1,6 @@
 
 section.container-icons{
-    width: 320px;
+    width: 100%;
     
     .div-icons {
       display: flex;
@@ -19,7 +19,7 @@ section.container-icons{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 280px;
+    width: 80%;
     padding: 0 5px;
     align-items: center;
     justify-content: space-between;

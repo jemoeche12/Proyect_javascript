@@ -1,0 +1,76 @@
+section.home {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
+    url(/assets/img/fondo.avif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+
+  h2.title-home {
+    font-size: 32px;
+    padding: 15px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 2px;
+    padding-top: 15%;
+    text-align: start;
+    position: relative;
+    color: white;
+    text-shadow: 0 0 3px black;
+  }
+  .home-parrafo {
+    width: 80%;
+    font-family: "Bebas Neue", sans-serif;
+    padding: 15px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    padding-top: 30%;
+    position: relative;
+    color: white;
+    text-shadow: 0 0 3px black;
+    text-transform: uppercase;
+    transition: all ease-in-out 0.5s;
+  }
+  button {
+    background: rgba(26, 173, 139, 0.4);
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 60px;
+    margin-top: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-left: 60%;
+    font-size: 1.6em;
+    padding: 0 1.7em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+    &:hover {
+      background: #fff;
+      color: #1aab8a;
+    }
+    button:before,
+    button:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 2px;
+      width: 0;
+      background: #1aab8a;
+      transition: 400ms ease all;
+    }
+    button:after {
+      right: inherit;
+      top: inherit;
+      left: 0;
+      bottom: 0;
+    }
+    button:hover:before,
+    button:hover:after {
+      width: 100%;
+      transition: 800ms ease all;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .card2-container{
-    width: 320px;
+    width: 100%;
     margin-top: 0;
     h2.title{
         font-size: 18px;
@@ -26,7 +26,7 @@
 }
 section.button-card{
     display: grid;
-    width: 320px;
+    width: 100%;
     grid-template-columns: 50% 50%;
     grid-template-rows: 33% 33% 33%;
     gap:10px;
