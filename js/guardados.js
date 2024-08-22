@@ -1,10 +1,16 @@
 function cargarTarjetas() {
   const tarjetaViaje = obtenerTarjetasDesdeLocalStorage();
   const cardsContainer = document.getElementById("cards");
-  tarjetaViaje.forEach((nuevoDestino) => {
-   
-      const tarjetaHTML = generarHTMLTarjeta(nuevoDestino);
-      cardsContainer.innerHTML += tarjetaHTML;
+  cardsContainer.innerHTML = ''; 
+  
+  tarjetaViaje.forEach((nuevoDestino, index) => {
+    const tarjetaHTML = generarHTMLTarjeta(nuevoDestino, index);
+    cardsContainer.innerHTML += tarjetaHTML;
+  });
+
+  const botonesEditar = document.querySelectorAll(".button-card");
+  botonesEditar.forEach((boton) => {
+    boton.addEventListener("click", direccionarCardViaje);
   });
 
   actualizarColoresBalance();
@@ -14,9 +20,9 @@ function obtenerTarjetasDesdeLocalStorage() {
   return JSON.parse(localStorage.getItem("tarjetaViaje")) || [];
 }
 
-function generarHTMLTarjeta({ destiny, budget, days, balance, promedioDiarioDespuesGastos }) {
+function generarHTMLTarjeta({ destiny, budget, days, balance, promedioDiarioDespuesGastos }, index) {
   return `
-  <section class="card-container">
+  <section class="card-container" id="tarjeta-${index}">
       <h2>Ciudad: ${destiny}</h2><br>
       <article class="list-item-card">
           <div class="item-card cartel1">
@@ -32,7 +38,7 @@ function generarHTMLTarjeta({ destiny, budget, days, balance, promedioDiarioDesp
               <h3>Disponible diario después de gastos:</h3> <strong>$<span class="balanc">${promedioDiarioDespuesGastos}</span></strong>
           </div>
       </article>
-      <button type="button" class="button-card" id="editar">EDITAR</button>
+      <button type="button" class="button-card" data-index="${index}">EDITAR</button>
   </section>
   `;
 }
@@ -41,17 +47,18 @@ function actualizarColoresBalance() {
   const balances = document.querySelectorAll(".balanc");
 
   balances.forEach((balance) => {
-      const balanceValue = parseInt(balance.textContent);
-      balance.style.color = balanceValue < 0 ? "red" : "green";
+    const balanceValue = parseInt(balance.textContent);
+    balance.style.color = balanceValue < 0 ? "red" : "green";
   });
 }
 
-cargarTarjetas();
-
-const editarTarjeta = document.getElementById("editar");
-editarTarjeta.addEventListener("click", direccionarCardViaje)
-
-function direccionarCardViaje(){
-  location.href = "./card-viaje.html"
+function direccionarCardViaje(event) {
+  const index = event.target.getAttribute('data-index');
+  
+  localStorage.setItem("tarjetaSeleccionada", index);
+  
+  location.href = "./card-viaje.html";
 }
+
+cargarTarjetas();
 
