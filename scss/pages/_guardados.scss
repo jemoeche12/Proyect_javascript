@@ -1,0 +1,43 @@
+
+section.container-icons{
+    width: 100%;
+    
+    .div-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1em;
+      padding: 0 20px;
+      .icon {
+        width: 40px;
+        padding: 10px 5px;
+        margin-bottom: 30px;
+      }
+      .coin{
+        width: 50px;
+        
+      }
+    }
+  }
+  .container-data{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    padding: 0 5px;
+    align-items: center;
+    justify-content: space-between;
+    .title-expens{
+       font-size: 18px;
+       width: 8px;
+       }
+    .balance{
+   color: black;
+  }
+ 
+  }
+  .promedio, .disponible{
+    font-size: 20px;
+    padding-left: 5px;
+    color: hsl(0, 0%, 100%);
+  }
