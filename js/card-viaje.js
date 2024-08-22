@@ -1,3 +1,4 @@
+const botonGastos = document.getElementById("button-gastos");
 
 function cargarTarjetas() {
 
@@ -10,6 +11,12 @@ function cargarTarjetas() {
   tarjetaViaje.forEach((nuevoDestino, index) => {
     const tarjetaHTML = mostrarTarjetaGuardada(nuevoDestino, index);
     cardContainer.innerHTML += tarjetaHTML;
+
+
+    const botonesGastos = document.querySelectorAll(".buttonTarjeta");
+    botonesGastos.forEach((boton) => {
+      boton.addEventListener("click", capturarId);
+    });
   });
 }
 
@@ -43,18 +50,30 @@ function mostrarTarjetaGuardada({
                 </article>
              </section>
              <section class="button-card">
-                <button id="button-movilidad"  class="buttonTarjeta">Trasporte</button>
-                <button id="button-otros"  class="buttonTarjeta">Otros</button>
-                <button id="button-alojamiento"  class="buttonTarjeta">Hotel</button>
-                <button id="button-comida"  class="buttonTarjeta">Comida</button>
-                <button id="button-excursiones"  class="buttonTarjeta">Bebidas</button>
-                <button id="button-actividades"  class="buttonTarjeta">Compras</button>
-                <button id="button-tours"  class="buttonTarjeta">Tours</button>
-                <button id="button-entradas"  class="buttonTarjeta">Entradas</button>
+                <button id="transporte"  class="buttonTarjeta">Trasporte</button>
+                <button id="hotel"  class="buttonTarjeta">Hotel</button>
+                <button id="comida" class="buttonTarjeta">Comida</button>
+                <button id="bebida"  class="buttonTarjeta">Bebidas</button>
+                <button id="compras"  class="buttonTarjeta">Compras</button>
+                <button id="tours" class="buttonTarjeta">Tours</button>
+                <button id="entradas"  class="buttonTarjeta">Entradas</button>
+                <button id="otros" class="buttonTarjeta">Otros</button>
             </section>
-            <button type="button" class="button-editar" id="editar">EDITAR</button>
+           
  
   `;
 }
 
 cargarTarjetas();
+function capturarId(e) {
+  tipoGasto = e.currentTarget.id
+  const modal = document.getElementById("editarGastos");
+  const modalContent = `
+    <section class="containerGastosEditar">
+      <label>Agregar gasto a ${tipoGasto}:</label>  <input type="text" placeholder="Ingrese el detalle del gasto" />
+      <input type="number" />
+       <button type="button" class="button-editar" id="editar">ENVIAR</button>
+    </section>
+  `;
+  modal.innerHTML = modalContent;
+}

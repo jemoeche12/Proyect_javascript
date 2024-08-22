@@ -13,6 +13,10 @@ section.container-icons{
         padding: 10px 5px;
         margin-bottom: 30px;
       }
+      .coin{
+        width: 50px;
+        
+      }
     }
   }
   .container-data{
@@ -35,4 +39,5 @@ section.container-icons{
   .promedio, .disponible{
     font-size: 20px;
     padding-left: 5px;
+    color: hsl(0, 0%, 100%);
   }

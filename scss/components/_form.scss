@@ -1,16 +1,22 @@
 .menu {
-  margin-top: 10px;
+  
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  url(/assets/img/paris2.png);
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 800px;
   .form {
     text-align: center;
     width: 90%;
     margin: 0 5%;
-    background-color: #efefef;
+    background-color: transparent;
     padding: 20px;
     color: #fff;
     border-radius: 20px;
@@ -20,7 +26,9 @@
     width: 15em;
     margin: 3px;
     height: 2em;
-    color: #6c757d;
+    color: white;
+    font-weight: 600;
+    border-bottom: 2px solid white
   }
   form .btn {
     margin: 2em 1em;
@@ -30,11 +38,12 @@
     font-style: normal;
     font-weight: 600;
     text-transform: uppercase;
-    color: #fff;
+    color: white;
     font-size: 22px;
     letter-spacing: 2px;
     border-radius: 20px;
     border: none;
     cursor: pointer;
+    background-color: transparent;
   }
 }

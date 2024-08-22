@@ -59,6 +59,7 @@ class NuevoDestino {
         this.promedioDiario = promedioDiario;
         this.promedioDiarioDespuesGastos = promedioDiarioDespuesGastos;
     }
+    //preguntar al profe si es recomendable hacer un array de expenses y dentro un objeto con categoria de gastos y sumarlos entre ellos. haciendo un reduce
 }
 
 function crearNuevoDestino(data) {
