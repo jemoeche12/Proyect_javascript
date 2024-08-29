@@ -103,4 +103,7 @@ function mostrarAlerta(balance) {
     } else {
         alert("Todavía puedes darte un gusto.");
     }
+    window.location.href = "../pages/guardados.html"
+
+
 }
