@@ -32,7 +32,7 @@ function cargarParrafoHome(elemento, texto, index = 0){
 cargarParrafoHome(homeParrafo, texto);
 
 function crearViaje() {
-    window.location.href = "../pages/agregar-viaje.html";
+    window.location.href = "/Proyect_javascript/pages/agregar-viaje.html";
 }
 
 const crear = document.getElementById("crear");
