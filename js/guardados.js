@@ -1,11 +1,11 @@
 function cargarTarjetas() {
   const tarjetaViaje = obtenerTarjetasDesdeLocalStorage();
-  const cardsContainer = document.getElementById("cards");
-  cardsContainer.innerHTML = ''; 
+  const contenerdorTarjetas = document.getElementById("cards");
+  contenerdorTarjetas.innerHTML = ''; 
   
   tarjetaViaje.forEach((nuevoDestino, index) => {
     const tarjetaHTML = generarHTMLTarjeta(nuevoDestino, index);
-    cardsContainer.innerHTML += tarjetaHTML;
+    contenerdorTarjetas.innerHTML += tarjetaHTML;
   });
 
   const botonesEditar = document.querySelectorAll(".button-card");
@@ -20,16 +20,16 @@ function obtenerTarjetasDesdeLocalStorage() {
   return JSON.parse(localStorage.getItem("tarjetaViaje")) || [];
 }
 
-function generarHTMLTarjeta({ destiny, budget, days, balance, promedioDiarioDespuesGastos }, index) {
+function generarHTMLTarjeta({ destino, presupuesto, dias, balance, promedioDiarioDespuesGastos }, index) {
   return `
   <section class="card-container" id="tarjeta-${index}">
-      <h2>Ciudad: ${destiny}</h2><br>
+      <h2>Ciudad: ${destino}</h2><br>
       <article class="list-item-card">
           <div class="item-card cartel1">
-              <h3>Presupuesto:</h3> <span>$${budget}</span>
+              <h3>Presupuesto:</h3> <span>$${presupuesto}</span>
           </div>
           <div class="item-card">
-              <h3>Días de Viaje:</h3> <span>${days}</span>
+              <h3>Días de Viaje:</h3> <span>${dias}</span>
           </div>
           <div class="item-card">
               <h3>Balance:</h3> <strong>$<span class="balanc">${balance}</span></strong>

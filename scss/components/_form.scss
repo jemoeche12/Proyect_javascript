@@ -20,8 +20,11 @@
     padding: 20px;
     color: #fff;
     border-radius: 20px;
-    
+    input{
+      color: white;
+    }
   }
+  
   form input::placeholder {
     width: 15em;
     margin: 3px;
@@ -46,4 +49,5 @@
     cursor: pointer;
     background-color: transparent;
   }
+  
 }

@@ -7,7 +7,7 @@ if (!user) {
 } else {
     const titleHome = document.querySelector(".title-home");
     if (titleHome) {
-        titleHome.innerHTML = `Hola ${user.name}`;
+        titleHome.innerHTML = `Hola ${user.nombre}`;
     }
 }
 
@@ -26,7 +26,16 @@ function cargarParrafoHome(elemento, texto, index = 0){
     
     setTimeout(() => cargarParrafoHome(homeParrafo, texto, index +1), 30);
 
-
+    
 }
 
-cargarParrafoHome(homeParrafo, texto)
+cargarParrafoHome(homeParrafo, texto);
+
+function crearViaje() {
+    window.location.href = "../pages/agregar-viaje.html";
+}
+
+const crear = document.getElementById("crear");
+if (crear) {
+    crear.addEventListener("click", crearViaje);
+}

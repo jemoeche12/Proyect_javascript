@@ -1,25 +1,32 @@
 const registro = document.querySelector("#registroForm");
 registro.addEventListener("submit", (e) =>{
     e.preventDefault();
-    const name = document.querySelector("#name").value;
+    const nombre = document.querySelector("#name").value;
     const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+    const contraseña = document.querySelector("#password").value;
     
-    const Users = JSON.parse(localStorage.getItem("users")) || [];
-    const usuariosRegistrados = Users.find(user => user.email === email);
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const usuariosRegistrados = users.find(user => user.email === email);
     if(usuariosRegistrados){
         alert("el usuario esta registrado")
         return;
     }
 
-    const newUsers = {
-        name: name, 
-        email: email,
-        password: password
+    class User {
+        constructor(nombre, email, contraseña){
+            this.nombre = nombre;
+            this.email = email;
+            this.contraseña = contraseña;
+        }
+        
     }
-        Users.push(newUsers)
-        localStorage.setItem("users", JSON.stringify(Users))
+    const nuevoUsuario = new User(nombre, email, contraseña);
+    users.push(nuevoUsuario);
+        localStorage.setItem("users", JSON.stringify(users))
         alert("registro exitoso");
         window.location.href = "./login.html"
             
 })
+
+
+

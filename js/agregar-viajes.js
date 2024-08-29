@@ -5,61 +5,61 @@ formulario.addEventListener('submit', manejarDatos);
 function manejarDatos(e) {
     e.preventDefault();
     
-    const { destiny, budget, days, acomodation, otros, food } = obtenerValoresFormulario();
-    const expenses = calcularGastos(acomodation, otros, food);
-    const balance = calcularBalance(budget, expenses);
-    const promedioDiario = calcularPromedioDiario(budget, days);
-    const promedioDiarioDespuesGastos = calcularPromedioDiarioDisponible(balance, days);
+    const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
+    const gastos = calcularGastos(hospedaje, otros, comida);
+    const balance = calcularBalance(presupuesto, gastos);
+    const promedioDiario = calcularPromedioDiario(presupuesto, dias);
+    const promedioDiarioDespuesGastos = calcularPromedioDiarioDisponible(balance, dias);
     
     const nuevoDestino = crearNuevoDestino({ 
-        destiny, budget, days, acomodation, otros, food, expenses, balance, promedioDiario, promedioDiarioDespuesGastos});
+        destino, presupuesto, dias, hospedaje, otros, comida, gastos, balance, promedioDiario, promedioDiarioDespuesGastos});
 
     guardarLocalStorage(nuevoDestino);
     
-    UI(destiny, budget, days, balance, promedioDiario, promedioDiarioDespuesGastos);
+    UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioDespuesGastos);
 }
 
 function obtenerValoresFormulario() {
     return {
-        destiny: formulario.destiny.value,
-        budget: formulario.budget.value,
-        days: formulario.days.value,
-        acomodation: formulario.acomodation.value,
+        destino: formulario.destino.value,
+        presupuesto: formulario.presupuesto.value,
+        dias: formulario.dias.value,
+        hospedaje: formulario.hospedaje.value,
         otros: formulario.otros.value,
-        food: formulario.food.value
+        comida: formulario.comida.value
     };
 }
 
-function calcularGastos(acomodation, otros, food) {
-    return parseInt(acomodation) + parseInt(otros) + parseInt(food);
+function calcularGastos(hospedaje, otros, comida) {
+    return parseInt(hospedaje) + parseInt(otros) + parseInt(comida);
 }
 
-function calcularBalance(budget, expenses) {
-    return parseInt(budget) - expenses;
+function calcularBalance(presupuesto, gastos) {
+    return parseInt(presupuesto) - gastos;
 }
 
-function calcularPromedioDiario(budget, days) {
-    return Math.floor(parseInt(budget) / parseInt(days));
+function calcularPromedioDiario(presupuesto, dias) {
+    return Math.floor(parseInt(presupuesto) / parseInt(dias));
 }
 
-function calcularPromedioDiarioDisponible(balance, days) {
-    return Math.floor(parseInt(balance) / parseInt(days));
+function calcularPromedioDiarioDisponible(balance, dias) {
+    return Math.floor(parseInt(balance) / parseInt(dias));
 }
 
 class NuevoDestino {   
-    constructor({ destiny, budget, days, acomodation, otros, food, expenses, balance, promedioDiario, promedioDiarioDespuesGastos }) {
-        this.destiny = destiny;
-        this.budget = budget;
-        this.days = days;
-        this.acomodation = acomodation;
+    constructor({ destino, presupuesto, dias, hospedaje, otros, comida, gastos, balance, promedioDiario, promedioDiarioDespuesGastos }) {
+        this.destino = destino;
+        this.presupuesto = presupuesto;
+        this.dias = dias;
+        this.hospedaje = hospedaje;
         this.otros = otros;
-        this.food = food;
-        this.expenses = expenses;
+        this.comida = comida;
+        this.gastos = gastos;
         this.balance = balance;
         this.promedioDiario = promedioDiario;
         this.promedioDiarioDespuesGastos = promedioDiarioDespuesGastos;
     }
-    //preguntar al profe si es recomendable hacer un array de expenses y dentro un objeto con categoria de gastos y sumarlos entre ellos. haciendo un reduce
+    //preguntar al profe si es recomendable hacer un array de gastos y dentro un objeto con categoria de gastos y sumarlos entre ellos. haciendo un reduce
 }
 
 function crearNuevoDestino(data) {
@@ -72,29 +72,29 @@ function guardarLocalStorage(nuevoDestino) {
     localStorage.setItem('tarjetaViaje', JSON.stringify(tarjetaViaje));
 }
 
-function UI(destiny, budget, days, balance, promedioDiario, promedioDiarioDespuesGastos) {
-    let result = document.getElementById("result");
-    let imprimirdatos = document.createElement("div");
+function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioDespuesGastos) {
+    let resultado = document.getElementById("result");
+    let imprimirDatos = document.createElement("div");
     
-    imprimirdatos.innerHTML = `
+    imprimirDatos.innerHTML = `
         <div class="container-data">
             <div class="title-expens">
-                <span>${destiny}</span>
+                <span id="destinoTarjeta">${destino}</span>
             </div>
             <div class="title-expens">
-                <span>${budget}</span>
+                <span>${presupuesto}</span>
             </div>
             <div class="title-expens balance">
                 <span>${balance}</span>
             </div>
         </div>
         <h1 class="promedio">El dinero diario es: $${promedioDiario}</h1>
-        <h2 class="promedio">Los días de viaje planificados son: ${days}</h2>
+        <h2 class="promedio">Los días de viaje planificados son: ${dias}</h2>
         <h2 class="disponible">El dinero diario disponible después de gastos es: $${promedioDiarioDespuesGastos}</h2>
     `;
     
     mostrarAlerta(balance);
-    result.appendChild(imprimirdatos);
+    resultado.appendChild(imprimirDatos);
 }
 
 function mostrarAlerta(balance) {
