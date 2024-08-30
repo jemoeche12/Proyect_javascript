@@ -1,17 +1,17 @@
 .menu {
-  
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
   url(/assets/img/paris2.png);
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 800px;
+  
   .form {
     text-align: center;
     width: 90%;
@@ -48,6 +48,11 @@
     border: none;
     cursor: pointer;
     background-color: transparent;
+  }
+  
+  .title-expens{
+    color: white;
+    
   }
   
 }

@@ -4,11 +4,14 @@ registro.addEventListener("submit", (e) =>{
     const nombre = document.querySelector("#name").value;
     const email = document.querySelector("#email").value;
     const contraseña = document.querySelector("#password").value;
-    
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const usuariosRegistrados = users.find(user => user.email === email);
+    let mensaje = document.getElementById("mensaje");
     if(usuariosRegistrados){
-        alert("el usuario esta registrado")
+        mensaje.innerHTML = "usuario ya registrado";
+        mensaje.style.color = "red";
+        mensaje.style.marginTop = "50px";
+        mensaje.style.textTransform = "uppercase";
         return;
     }
 
@@ -23,8 +26,13 @@ registro.addEventListener("submit", (e) =>{
     const nuevoUsuario = new User(nombre, email, contraseña);
     users.push(nuevoUsuario);
         localStorage.setItem("users", JSON.stringify(users))
-        alert("registro exitoso");
-        window.location.href = "./login.html"
+        mensaje.innerHTML = "registro exitoso";
+        mensaje.style.color = "green";
+        mensaje.style.marginTop = "50px";
+        mensaje.style.textTransform = "uppercase";
+        setTimeout (() => {
+            window.location.href = "./login.html"
+        },2000)
             
 })
 

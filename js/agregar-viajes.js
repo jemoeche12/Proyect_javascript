@@ -77,6 +77,11 @@ function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioD
     let imprimirDatos = document.createElement("div");
     
     imprimirDatos.innerHTML = `
+        <div class="div-icons">
+          <img class="icon" src="../assets/icons/Plane_icon.svg.png" alt="" />
+          <img class="icon" src="../assets/icons//wallet-32.png" />
+          <img class="icon coin" src="../assets/icons/icons8-coin-50.png">
+        </div>
         <div class="container-data">
             <div class="title-expens">
                 <span id="destinoTarjeta">${destino}</span>
@@ -84,17 +89,19 @@ function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioD
             <div class="title-expens">
                 <span>${presupuesto}</span>
             </div>
-            <div class="title-expens balance">
+            <div class="title-expens">
                 <span>${balance}</span>
             </div>
         </div>
         <h1 class="promedio">El dinero diario es: $${promedioDiario}</h1>
         <h2 class="promedio">Los días de viaje planificados son: ${dias}</h2>
         <h2 class="disponible">El dinero diario disponible después de gastos es: $${promedioDiarioDespuesGastos}</h2>
+        
     `;
     
     mostrarAlerta(balance);
     resultado.appendChild(imprimirDatos);
+    redireccionar();
 }
 
 function mostrarAlerta(balance) {
@@ -103,7 +110,11 @@ function mostrarAlerta(balance) {
     } else {
         alert("Todavía puedes darte un gusto.");
     }
-    window.location.href = "../pages/guardados.html"
-
-
+    
 }
+function redireccionar (){
+    setTimeout(() =>{
+        window.location.href = "../pages/guardados.html"
+     },3000)
+}
+ 

@@ -105,7 +105,7 @@ footer .redes-container .icon-footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/assets/img/paris2.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/assets/img/paris2.png);
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
@@ -156,6 +156,9 @@ footer .redes-container .icon-footer {
   cursor: pointer;
   background-color: transparent;
 }
+.menu .title-expens {
+  color: white;
+}
 
 section.container-icons {
   width: 100%;
@@ -184,22 +187,19 @@ section.container-icons .div-icons .coin {
   padding: 0 5px;
   align-items: center;
   justify-content: space-between;
-  color: white;
-  text-transform: uppercase;
 }
 .container-data .title-expens {
   font-size: 18px;
   width: 8px;
-  color: white;
 }
 .container-data .balance {
-  color: white;
+  color: black;
 }
 
 .promedio, .disponible {
   font-size: 20px;
   padding-left: 5px;
-  color: white;;
+  color: hsl(0, 0%, 100%);
 }
 
 .card-container {
