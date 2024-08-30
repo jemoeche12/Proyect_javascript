@@ -1,4 +1,5 @@
 const formulario = document.getElementById('tarjetaDestino');
+let resultado = document.getElementById("result");
 
 formulario.addEventListener('submit', manejarDatos);
 
@@ -73,7 +74,6 @@ function guardarLocalStorage(nuevoDestino) {
 }
 
 function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioDespuesGastos) {
-    let resultado = document.getElementById("result");
     let imprimirDatos = document.createElement("div");
     
     imprimirDatos.innerHTML = `
@@ -105,16 +105,31 @@ function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioD
 }
 
 function mostrarAlerta(balance) {
-    if (balance <= 0) {
-        alert(`Necesitas conseguir aún $${Math.abs(balance)} para pagar las vacaciones que te mandaste.`);
-    } else {
-        alert("Todavía puedes darte un gusto.");
+   if (balance < 0) {
+        resultado.innerHTML = `Necesitas conseguir aún $${Math.abs(balance)} para pagar las vacaciones que te mandaste.`;
+        resultado.style.color = "red";
+        resultado.style.paddingLeft = "5px";
+        resultado.style.fontSize = "20px";
+        resultado.style.textTransform = "uppercase";
+    } else if( balance === 0) {
+        resultado.innerHTML = "llegaste justo a las vacaciones.";
+        resultado.style.color = "green";
+        resultado.style.paddingLeft = "5px";
+        resultado.style.fontSize = "20px";
+        resultado.style.textTransform = "uppercase";
+    }else{
+        resultado.innerHTML = "Todavía puedes darte un gusto.";
+        resultado.style.color = "green";
+        resultado.style.paddingLeft = "5px";
+        resultado.style.fontSize = "20px";
+        resultado.style.textTransform = "uppercase";
+        
     }
     
 }
 function redireccionar (){
     setTimeout(() =>{
         window.location.href = "../pages/guardados.html"
-     },3000)
+     },4000)
 }
  
