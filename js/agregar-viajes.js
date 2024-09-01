@@ -5,6 +5,10 @@ formulario.addEventListener('submit', manejarDatos);
 
 function manejarDatos(e) {
     e.preventDefault();
+
+    if (!validarFormulario()) {
+        return;
+    }
     
     const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
     const gastos = calcularGastos(hospedaje, otros, comida);
@@ -132,4 +136,38 @@ function redireccionar (){
         window.location.href = "../pages/guardados.html"
      },4000)
 }
- 
+
+function validarFormulario() {
+    const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
+
+    // Validar que el destino sea solo texto
+    const regexTexto = /^[a-zA-Z\s]+$/;
+    if (!regexTexto.test(destino)) {
+        alert("El campo 'Destino' solo debe contener letras y espacios.");
+        return false;
+    }
+
+    // Validar que los otros campos sean números positivos
+    if (isNaN(presupuesto) || presupuesto <= 0) {
+        alert("El campo 'Presupuesto' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(dias) || dias <= 0) {
+        alert("El campo 'Días' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(hospedaje) || hospedaje < 0) {
+        alert("El campo 'Hospedaje' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(otros) || otros < 0) {
+        alert("El campo 'Otros' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(comida) || comida < 0) {
+        alert("El campo 'Comida' debe ser un número positivo.");
+        return false;
+    }
+
+    return true;
+}
