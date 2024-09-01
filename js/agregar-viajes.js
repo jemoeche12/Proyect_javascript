@@ -1,10 +1,15 @@
 const formulario = document.getElementById('tarjetaDestino');
+let resultado = document.getElementById("result");
 
 formulario.addEventListener('submit', manejarDatos);
 
 function manejarDatos(e) {
     e.preventDefault();
     
+    if (!validarFormulario()) {
+        return;
+    }
+
     const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
     const gastos = calcularGastos(hospedaje, otros, comida);
     const balance = calcularBalance(presupuesto, gastos);
@@ -73,10 +78,14 @@ function guardarLocalStorage(nuevoDestino) {
 }
 
 function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioDespuesGastos) {
-    let resultado = document.getElementById("result");
     let imprimirDatos = document.createElement("div");
     
     imprimirDatos.innerHTML = `
+        <div class="div-icons">
+          <img class="icon" src="../assets/icons/Plane_icon.svg.png" alt="" />
+          <img class="icon" src="../assets/icons//wallet-32.png" />
+          <img class="icon coin" src="../assets/icons/icons8-coin-50.png">
+        </div>
         <div class="container-data">
             <div class="title-expens">
                 <span id="destinoTarjeta">${destino}</span>
@@ -84,26 +93,82 @@ function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioD
             <div class="title-expens">
                 <span>${presupuesto}</span>
             </div>
-            <div class="title-expens balance">
+            <div class="title-expens">
                 <span>${balance}</span>
             </div>
         </div>
         <h1 class="promedio">El dinero diario es: $${promedioDiario}</h1>
         <h2 class="promedio">Los días de viaje planificados son: ${dias}</h2>
         <h2 class="disponible">El dinero diario disponible después de gastos es: $${promedioDiarioDespuesGastos}</h2>
+        
     `;
     
     mostrarAlerta(balance);
     resultado.appendChild(imprimirDatos);
+    redireccionar();
 }
 
 function mostrarAlerta(balance) {
-    if (balance <= 0) {
-        alert(`Necesitas conseguir aún $${Math.abs(balance)} para pagar las vacaciones que te mandaste.`);
-    } else {
-        alert("Todavía puedes darte un gusto.");
+   if (balance < 0) {
+        resultado.innerHTML = `Necesitas conseguir aún $${Math.abs(balance)} para pagar las vacaciones que te mandaste.`;
+        resultado.style.color = "red";
+        resultado.style.paddingLeft = "5px";
+        resultado.style.fontSize = "20px";
+        resultado.style.textTransform = "uppercase";
+    } else if( balance === 0) {
+        resultado.innerHTML = "llegaste justo a las vacaciones.";
+        resultado.style.color = "green";
+        resultado.style.paddingLeft = "5px";
+        resultado.style.fontSize = "20px";
+        resultado.style.textTransform = "uppercase";
+    }else{
+        resultado.innerHTML = "Todavía puedes darte un gusto.";
+        resultado.style.color = "green";
+        resultado.style.paddingLeft = "5px";
+        resultado.style.fontSize = "20px";
+        resultado.style.textTransform = "uppercase";
+        
     }
-    window.location.href = "../pages/guardados.html"
+    
+}
+function redireccionar (){
+    setTimeout(() =>{
+        window.location.href = "../pages/guardados.html"
+     },4000)
+}
+ 
 
+function validarFormulario() {
+    const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
 
+    // Validar que el destino sea solo texto
+    const regexTexto = /^[a-zA-Z\s]+$/;
+    if (!regexTexto.test(destino)) {
+        alert("El campo 'Destino' solo debe contener letras y espacios.");
+        return false;
+    }
+
+    // Validar que los otros campos sean números positivos
+    if (isNaN(presupuesto) || presupuesto <= 0) {
+        alert("El campo 'Presupuesto' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(dias) || dias <= 0) {
+        alert("El campo 'Días' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(hospedaje) || hospedaje < 0) {
+        alert("El campo 'Hospedaje' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(otros) || otros < 0) {
+        alert("El campo 'Otros' debe ser un número positivo.");
+        return false;
+    }
+    if (isNaN(comida) || comida < 0) {
+        alert("El campo 'Comida' debe ser un número positivo.");
+        return false;
+    }
+
+    return true;
 }

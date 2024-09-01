@@ -105,12 +105,14 @@ footer .redes-container .icon-footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Proyect_javascript/assets/img/paris2.png);
+
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 800px;
+  height: 900px;
 }
 .menu .form {
   text-align: center;
@@ -155,6 +157,9 @@ footer .redes-container .icon-footer {
   border: none;
   cursor: pointer;
   background-color: transparent;
+}
+.menu .title-expens {
+  color: white;
 }
 
 section.container-icons {
