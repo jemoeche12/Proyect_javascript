@@ -3,7 +3,7 @@ const salir = document.querySelector("#salir");
 const homeParrafo = document.querySelector(".home-parrafo");
 
 if (!user) {
-    window.location.href = "../pages/registro.html";
+    window.location.href = "/Proyect_javascript/pages/registro.html";
 } else {
     const titleHome = document.querySelector(".title-home");
     if (titleHome) {
@@ -14,7 +14,7 @@ if (!user) {
 salir.addEventListener("click", () => {
     alert("hasta pronto")
     localStorage.removeItem("login-exitoso");
-    window.location.href = "../pages/login.html"
+    window.location.href = "../Proyect_javascript/pages/login.html"
 })
 
 texto = "Bienvenido a Bonne Voyage, la aplicacion que te ayuda a organizar tu viaje. Sigue el instructivo y veras que nunca fue tan facil tener el control de tu viaje";
@@ -32,7 +32,7 @@ function cargarParrafoHome(elemento, texto, index = 0){
 cargarParrafoHome(homeParrafo, texto);
 
 function crearViaje() {
-    window.location.href = "../pages/agregar-viaje.html";
+    window.location.href = "/Proyect_javascript/pages/agregar-viaje.html";
 }
 
 const crear = document.getElementById("crear");
