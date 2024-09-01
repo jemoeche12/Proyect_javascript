@@ -105,7 +105,9 @@ footer .redes-container .icon-footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/assets/img/paris2.png);
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Proyect_javascript/assets/img/paris2.png);
+
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
@@ -404,14 +406,14 @@ section.button-card .buttonTarjeta:hover {
 }
 
 .login {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/assets/img/fondo3.webp);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/Proyect_javascript/assets/img/fondo3.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .registro {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/assets/img/fondo2.webp);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(/Proyect_javascript/assets/img/fondo2.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -419,7 +421,7 @@ section.button-card .buttonTarjeta:hover {
 
 section.home {
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(/assets/img/fondo.avif);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(/Proyect_javascript/assets/img/fondo.avif);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

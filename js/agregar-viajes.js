@@ -5,11 +5,11 @@ formulario.addEventListener('submit', manejarDatos);
 
 function manejarDatos(e) {
     e.preventDefault();
-
+    
     if (!validarFormulario()) {
         return;
     }
-    
+
     const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
     const gastos = calcularGastos(hospedaje, otros, comida);
     const balance = calcularBalance(presupuesto, gastos);
@@ -136,6 +136,7 @@ function redireccionar (){
         window.location.href = "../pages/guardados.html"
      },4000)
 }
+ 
 
 function validarFormulario() {
     const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
