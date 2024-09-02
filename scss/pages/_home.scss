@@ -31,46 +31,57 @@ section.home {
     text-transform: uppercase;
     transition: all ease-in-out 0.5s;
   }
-  button {
-    background: rgba(26, 173, 139, 0.4);
-    color: #fff;
-    border: none;
-    position: relative;
-    height: 60px;
-    margin-top: 20px;
-    font-weight: 600;
-    border-radius: 10px;
-    margin-left: 60%;
-    font-size: 1.6em;
-    padding: 0 1.7em;
-    cursor: pointer;
-    transition: 800ms ease all;
-    outline: none;
-    &:hover {
-      background: #fff;
-      color: #1aab8a;
-    }
-    button:before,
-    button:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 2px;
-      width: 0;
-      background: #1aab8a;
-      transition: 400ms ease all;
-    }
-    button:after {
-      right: inherit;
-      top: inherit;
-      left: 0;
-      bottom: 0;
-    }
-    button:hover:before,
-    button:hover:after {
-      width: 100%;
+  .btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    button {
+      background: rgba(26, 173, 139, 0.4);
+      color: #fff;
+      border: none;
+      position: relative;
+      height: 60px;
+      margin-top: 20px;
+      margin-left: 10px;
+      font-weight: 600;
+      border-radius: 10px;
+      font-size: 1.6em;
+      padding: 0 1.5em;
+      
+      cursor: pointer;
       transition: 800ms ease all;
+      outline: none;
+      &:hover {
+        background: #fff;
+        color: #1aab8a;
+      }
+      button:before,
+      button:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2px;
+        width: 0;
+        background: #1aab8a;
+        transition: 400ms ease all;
+      }
+      button:after {
+        right: inherit;
+        top: inherit;
+        left: 0;
+        bottom: 0;
+      }
+      button:hover:before,
+      button:hover:after {
+        width: 100%;
+        transition: 800ms ease all;
+      }
+    }
+    .btnAgregar{
+      margin-top: 20px;
+      margin-right: 10px;     
     }
   }
+  
 }

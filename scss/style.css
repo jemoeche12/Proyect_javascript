@@ -449,28 +449,33 @@ section.home .home-parrafo {
   text-transform: uppercase;
   transition: all ease-in-out 0.5s;
 }
-section.home button {
+section.home .btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+section.home .btn-container button {
   background: rgba(26, 173, 139, 0.4);
   color: #fff;
   border: none;
   position: relative;
   height: 60px;
   margin-top: 20px;
+  margin-left: 10px;
   font-weight: 600;
   border-radius: 10px;
-  margin-left: 60%;
   font-size: 1.6em;
-  padding: 0 1.7em;
+  padding: 0 1.5em;
   cursor: pointer;
   transition: 800ms ease all;
   outline: none;
 }
-section.home button:hover {
+section.home .btn-container button:hover {
   background: #fff;
   color: #1aab8a;
 }
-section.home button button:before,
-section.home button button:after {
+section.home .btn-container button button:before,
+section.home .btn-container button button:after {
   content: "";
   position: absolute;
   top: 0;
@@ -480,14 +485,18 @@ section.home button button:after {
   background: #1aab8a;
   transition: 400ms ease all;
 }
-section.home button button:after {
+section.home .btn-container button button:after {
   right: inherit;
   top: inherit;
   left: 0;
   bottom: 0;
 }
-section.home button button:hover:before,
-section.home button button:hover:after {
+section.home .btn-container button button:hover:before,
+section.home .btn-container button button:hover:after {
   width: 100%;
   transition: 800ms ease all;
+}
+section.home .btn-container .btnAgregar {
+  margin-top: 20px;
+  margin-right: 10px;
 }/*# sourceMappingURL=style.css.map */
