@@ -17,7 +17,7 @@ salir.addEventListener("click", () => {
     window.location.href = "/pages/login.html"
 })
 
-texto = "Bienvenido a Bonne Voyage, la aplicacion que te ayuda a organizar tu viaje. Sigue el instructivo y veras que nunca fue tan facil tener el control de tu viaje";
+let texto = "Bienvenido a Bonne Voyage, la aplicacion que te ayuda a organizar tu viaje. Sigue el instructivo y veras que nunca fue tan facil tener el control de tu viaje";
 
 function cargarParrafoHome(elemento, texto, index = 0){
     elemento.textContent += texto[index];
@@ -39,4 +39,5 @@ const crear = document.getElementById("crear");
 if (crear) {
     crear.addEventListener("click", crearViaje);
 }
+
 

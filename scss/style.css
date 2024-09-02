@@ -318,7 +318,7 @@ section.button-card .buttonTarjeta:hover {
   height: 800px;
 }
 .sectionForm h2 {
-  margin-top: -270px;
+  margin-top: -240px;
   padding: 15px 0;
   font-size: 32px;
   color: white;
@@ -499,4 +499,20 @@ section.home .btn-container button button:hover:after {
 section.home .btn-container .btnAgregar {
   margin-top: 20px;
   margin-right: 10px;
+}
+
+.slider-inn-container {
+  display: flex;
+  align-items: center;
+  width: 1080px;
+  height: 100vh;
+}
+.slider-inn-container .slider-inner {
+  width: 100%;
+}
+.slider-inn-container .slider-inner img {
+  width: 360px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */

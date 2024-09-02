@@ -6,7 +6,6 @@ section.home {
   background-position: center;
   background-size: cover;
   height: 800px;
-
   h2.title-home {
     font-size: 32px;
     padding: 15px;
@@ -47,7 +46,6 @@ section.home {
       border-radius: 10px;
       font-size: 1.6em;
       padding: 0 1.5em;
-      
       cursor: pointer;
       transition: 800ms ease all;
       outline: none;
@@ -83,5 +81,4 @@ section.home {
       margin-right: 10px;     
     }
   }
-  
 }

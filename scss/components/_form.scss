@@ -5,10 +5,7 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-
-
   url(/assets/img/paris2.png);
-
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
@@ -27,7 +24,6 @@
       color: white;
     }
   }
-  
   form input::placeholder {
     width: 15em;
     margin: 3px;
@@ -52,10 +48,8 @@
     cursor: pointer;
     background-color: transparent;
   }
-  
   .title-expens{
     color: white;
     
   }
-  
 }
