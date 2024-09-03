@@ -115,18 +115,23 @@ function mostrarAlerta(balance) {
         resultado.style.paddingLeft = "5px";
         resultado.style.fontSize = "20px";
         resultado.style.textTransform = "uppercase";
+        resultado.style.fontWeight = "700"
+
     } else if( balance === 0) {
         resultado.innerHTML = "llegaste justo a las vacaciones.";
         resultado.style.color = "green";
         resultado.style.paddingLeft = "5px";
         resultado.style.fontSize = "20px";
         resultado.style.textTransform = "uppercase";
+        resultado.style.fontWeight = "700"
+
     }else{
         resultado.innerHTML = "Todavía puedes darte un gusto.";
         resultado.style.color = "green";
         resultado.style.paddingLeft = "5px";
         resultado.style.fontSize = "20px";
         resultado.style.textTransform = "uppercase";
+        resultado.style.fontWeight = "700"
         
     }
     

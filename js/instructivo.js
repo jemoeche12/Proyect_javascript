@@ -15,13 +15,13 @@ let tutorialPasos = [
     {
         title: "Paso 3: Revisa y edita tus gastos",
         content: "Entra a la sección donde guardas tus viajes y edita los gastos.",
-        buttonText: "VAMOS !!!",
-        img: "../assets/img/roma.png",
+        buttonText: "Siguiente",
+        img: "../assets/img/roma.webp",
     },
     {
         title: "Paso 4: Viaja con tranquilidad",
         content: "Disfruta de tus vacaciones, relajate que nosotros llevamos el control de todo",
-        buttonText: "VAMOS !!!",
+        buttonText: "VAMOS!!!",
         img: "../assets/img/paris2.png",
     }
   
