@@ -41,3 +41,9 @@ if (crear) {
 }
 
 
+let dirigirInstructivo = document.getElementById("instructivo");
+dirigirInstructivo.addEventListener("click", redirigirAinstructivo)
+
+function redirigirAinstructivo(){
+    window.location.href = "/pages/instructivo.html";
+}

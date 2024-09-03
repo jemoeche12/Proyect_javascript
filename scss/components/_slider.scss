@@ -1,14 +1,40 @@
-.slider-inn-container{
+.tutorial-container{
     display: flex;
     align-items: center;
-    width: 1080px;
-    height: 100vh;
-    .slider-inner{
+    width: 360px;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+    .img-pasoApaso{
+        height: 75%;
         width: 100%;
-        img{
-            width: 360px;
-            object-fit: cover;
-            height: 100%;
-        }
+        position: relative;
+        margin-top: 5px;
+        object-fit: cover;
+            
+    }
+    .paso {
+        padding: 20px;
+        display: none;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.5s, transform 0.5s;
+        color: white;
+        font-size: 20px;
+        margin: 5px 0;
+    }
+    .paso.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        position: relative;
+        z-index: 1;
+       
+    }
+    
+    .buttonSiguiente{
+        padding: 5px 10px;
+        margin: 7px 0;
     }
 }
