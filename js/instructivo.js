@@ -1,31 +1,3 @@
-let tutorialPasos = [
-    {
-        title: "Paso 1: Completa el formulario",
-        content: "Completa el formulario para que podamos ayudarte a clasificar tus gastos.",
-        buttonText: "Siguiente",
-        img: "../assets/img/florencia.webp",
-    },
-    {
-        title: "Paso 2: Revisa los balances",
-        content: "revisa el balance y el gasto que podes realizar, segun la informacion brindada",
-        buttonText: "Siguiente",
-        img: "../assets/img/brujas.webp",
-    },
-    
-    {
-        title: "Paso 3: Revisa y edita tus gastos",
-        content: "Entra a la sección donde guardas tus viajes y edita los gastos.",
-        buttonText: "Siguiente",
-        img: "../assets/img/roma.webp",
-    },
-    {
-        title: "Paso 4: Viaja con tranquilidad",
-        content: "Disfruta de tus vacaciones, relajate que nosotros llevamos el control de todo",
-        buttonText: "VAMOS!!!",
-        img: "../assets/img/paris2.png",
-    }
-  
-];
 
 let contador = 0;
 
@@ -84,4 +56,19 @@ function terminarTutorial() {
     }, 2000)
 }
 
-document.addEventListener('DOMContentLoaded', mostrarPaso);
+function cargarTutorial() {
+    fetch('/data/tutorialPasos.json') 
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el JSON');
+            }
+            return response.json();
+        })
+        .then(data => {
+            tutorialPasos = data.tutorialPasos;
+            mostrarPaso();
+        })
+        .catch(error => console.error('Error al cargar el JSON:', error));
+}
+
+document.addEventListener('DOMContentLoaded', cargarTutorial());

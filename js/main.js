@@ -18,7 +18,6 @@ salir.addEventListener("click", () => {
         confirmButtonText: "Si",
         denyButtonText: `No`
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           Swal.fire("Adios, Te esperamos pronto!", "", "success");
         } else if (result.isDenied) {
