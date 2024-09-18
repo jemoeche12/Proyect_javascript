@@ -8,7 +8,8 @@ loginForm.addEventListener("submit", (e) =>{
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const usuarioCorrecto = users.find(user => user.email === email && user.contraseña === contraseña)
     if(!usuarioCorrecto){
-        return alert("contraseña/email incorrectos");
+        alertarErrorUsuario()
+        return ;
         
     }
     window.location.href = "../index.html"
@@ -17,3 +18,22 @@ loginForm.addEventListener("submit", (e) =>{
 })
 
 
+function alertarErrorUsuario() {
+    Swal.fire({
+        title: " Usuario o contraseña incorrectos",
+        showClass: {
+            popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+            popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+    });
+}

@@ -12,9 +12,21 @@ if (!user) {
 }
 
 salir.addEventListener("click", () => {
-    alert("hasta pronto")
+    Swal.fire({
+        title: "Seguro que quieres salir?",
+        showDenyButton: true,
+        confirmButtonText: "Si",
+        denyButtonText: `No`
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire("Adios, Te esperamos pronto!", "", "success");
+        } else if (result.isDenied) {
+          Swal.fire("Gracias por quedarte", "", "info");
+        }
+      });
     localStorage.removeItem("login-exitoso");
-    window.location.href = "/pages/login.html"
+    
 })
 
 let texto = "Bienvenido a Bonne Voyage, la aplicacion que te ayuda a organizar tu viaje. Sigue el instructivo y veras que nunca fue tan facil tener el control de tu viaje";
