@@ -54,6 +54,7 @@ function actualizarColoresBalance() {
 
 function direccionarCardViaje(event) {
   const index = event.target.getAttribute('data-index');
+
   
   localStorage.setItem("tarjetaSeleccionada", index);
   
@@ -61,4 +62,5 @@ function direccionarCardViaje(event) {
 }
 
 cargarTarjetas();
+
 

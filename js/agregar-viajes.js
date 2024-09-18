@@ -1,3 +1,6 @@
+
+
+
 const formulario = document.getElementById('tarjetaDestino');
 let resultado = document.getElementById("result");
 
@@ -11,13 +14,30 @@ function manejarDatos(e) {
     }
 
     const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
-    const gastos = calcularGastos(hospedaje, otros, comida);
-    const balance = calcularBalance(presupuesto, gastos);
-    const promedioDiario = calcularPromedioDiario(presupuesto, dias);
-    const promedioDiarioDespuesGastos = calcularPromedioDiarioDisponible(balance, dias);
+
+    const generarId = () => Date.now() + Math.random().toString(36).substring(2, 9);
+
+    const gastos = [
+        {categoria: "entradas", cantidad: 0, id: generarId(), descripcion: ""},
+        {categoria: "hospedaje", cantidad: parseInt(hospedaje) || 0, id: generarId(), descripcion: ""},
+        {categoria: "otros", cantidad: parseInt(otros) || 0, id: generarId(), descripcion: ""},
+        {categoria: "comida", cantidad: parseInt(comida) || 0, id: generarId(), descripcion: ""},
+        {categoria: "compras", cantidad: 0, id: generarId(), descripcion: ""},
+        {categoria: "tours", cantidad: 0, id: generarId(), descripcion: ""},
+        {categoria: "transporte", cantidad: 0, id: generarId(), descripcion: ""},
+        {categoria: "ocio", cantidad: 0, id: generarId(), descripcion: ""}
+    ];
+
+    const totalGastos = calcularGastos(gastos);
+
+    const balance = calcularBalance(parseInt(presupuesto), totalGastos);
     
+    const promedioDiario = calcularPromedioDiario(parseInt(presupuesto), parseInt(dias));
+    const promedioDiarioDespuesGastos = calcularPromedioDiarioDisponible(balance, parseInt(dias));
+   
     const nuevoDestino = crearNuevoDestino({ 
-        destino, presupuesto, dias, hospedaje, otros, comida, gastos, balance, promedioDiario, promedioDiarioDespuesGastos});
+        destino, presupuesto, dias, gastos, balance, promedioDiario, promedioDiarioDespuesGastos
+    });
 
     guardarLocalStorage(nuevoDestino);
     
@@ -25,46 +45,43 @@ function manejarDatos(e) {
 }
 
 function obtenerValoresFormulario() {
+    const {destino, presupuesto, dias, hospedaje, otros, comida} = formulario
     return {
-        destino: formulario.destino.value,
-        presupuesto: formulario.presupuesto.value,
-        dias: formulario.dias.value,
-        hospedaje: formulario.hospedaje.value,
-        otros: formulario.otros.value,
-        comida: formulario.comida.value
+        destino: destino.value,
+        presupuesto: presupuesto.value,
+        dias: dias.value,
+        hospedaje: hospedaje.value,
+        otros: otros.value,
+        comida: comida.value
     };
 }
 
-function calcularGastos(hospedaje, otros, comida) {
-    return parseInt(hospedaje) + parseInt(otros) + parseInt(comida);
-}
-
-function calcularBalance(presupuesto, gastos) {
-    return parseInt(presupuesto) - gastos;
-}
-
-function calcularPromedioDiario(presupuesto, dias) {
-    return Math.floor(parseInt(presupuesto) / parseInt(dias));
-}
-
-function calcularPromedioDiarioDisponible(balance, dias) {
-    return Math.floor(parseInt(balance) / parseInt(dias));
-}
-
 class NuevoDestino {   
-    constructor({ destino, presupuesto, dias, hospedaje, otros, comida, gastos, balance, promedioDiario, promedioDiarioDespuesGastos }) {
+    constructor({ destino, presupuesto, dias, gastos, balance, promedioDiario, promedioDiarioDespuesGastos }) {
         this.destino = destino;
-        this.presupuesto = presupuesto;
-        this.dias = dias;
-        this.hospedaje = hospedaje;
-        this.otros = otros;
-        this.comida = comida;
+        this.presupuesto = parseInt(presupuesto);
+        this.dias = parseInt(dias);
         this.gastos = gastos;
         this.balance = balance;
         this.promedioDiario = promedioDiario;
         this.promedioDiarioDespuesGastos = promedioDiarioDespuesGastos;
     }
-    //preguntar al profe si es recomendable hacer un array de gastos y dentro un objeto con categoria de gastos y sumarlos entre ellos. haciendo un reduce
+}
+
+function calcularGastos(gastos) {
+    return gastos.reduce((total, gasto) => total + gasto.cantidad, 0);
+}
+
+function calcularBalance(presupuesto, totalGastos) {
+    return presupuesto - totalGastos;
+}
+
+function calcularPromedioDiario(presupuesto, dias) {
+    return Math.floor(presupuesto / dias);
+}
+
+function calcularPromedioDiarioDisponible(balance, dias) {
+    return Math.floor(balance / dias);
 }
 
 function crearNuevoDestino(data) {
@@ -83,7 +100,7 @@ function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioD
     imprimirDatos.innerHTML = `
         <div class="div-icons">
           <img class="icon" src="../assets/icons/Plane_icon.svg.png" alt="" />
-          <img class="icon" src="../assets/icons//wallet-32.png" />
+          <img class="icon" src="../assets/icons/wallet-32.png" />
           <img class="icon coin" src="../assets/icons/icons8-coin-50.png">
         </div>
         <div class="container-data">
@@ -100,7 +117,6 @@ function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioD
         <h1 class="promedio">El dinero diario es: $${promedioDiario}</h1>
         <h2 class="promedio">Los días de viaje planificados son: ${dias}</h2>
         <h2 class="disponible">El dinero diario disponible después de gastos es: $${promedioDiarioDespuesGastos}</h2>
-        
     `;
     
     mostrarAlerta(balance);
@@ -109,51 +125,44 @@ function UI(destino, presupuesto, dias, balance, promedioDiario, promedioDiarioD
 }
 
 function mostrarAlerta(balance) {
-   if (balance < 0) {
-        resultado.innerHTML = `Necesitas conseguir aún $${Math.abs(balance)} para pagar las vacaciones que te mandaste.`;
+    if (balance < 0) {
+        resultado.innerHTML = `Necesitas conseguir aún $${Math.abs(balance)} para pagar las vacaciones.`;
         resultado.style.color = "red";
-        resultado.style.paddingLeft = "5px";
+        resultado.style.fontWeight = "600";
         resultado.style.fontSize = "20px";
         resultado.style.textTransform = "uppercase";
-        resultado.style.fontWeight = "700"
 
-    } else if( balance === 0) {
-        resultado.innerHTML = "llegaste justo a las vacaciones.";
+    } else if (balance === 0) {
+        resultado.innerHTML = "Llegaste justo a las vacaciones.";
         resultado.style.color = "green";
-        resultado.style.paddingLeft = "5px";
+        resultado.style.fontWeight = "600";
         resultado.style.fontSize = "20px";
         resultado.style.textTransform = "uppercase";
-        resultado.style.fontWeight = "700"
 
-    }else{
+    } else {
         resultado.innerHTML = "Todavía puedes darte un gusto.";
         resultado.style.color = "green";
-        resultado.style.paddingLeft = "5px";
+        resultado.style.fontWeight = "600";
         resultado.style.fontSize = "20px";
         resultado.style.textTransform = "uppercase";
-        resultado.style.fontWeight = "700"
-        
     }
-    
 }
-function redireccionar (){
-    setTimeout(() =>{
-        window.location.href = "../pages/guardados.html"
-     },4000)
+
+function redireccionar() {
+    setTimeout(() => {
+        window.location.href = "../pages/guardados.html";
+    }, 4000);
 }
- 
 
 function validarFormulario() {
     const { destino, presupuesto, dias, hospedaje, otros, comida } = obtenerValoresFormulario();
 
-    // Validar que el destino sea solo texto
     const regexTexto = /^[a-zA-Z\s]+$/;
     if (!regexTexto.test(destino)) {
         alert("El campo 'Destino' solo debe contener letras y espacios.");
         return false;
     }
 
-    // Validar que los otros campos sean números positivos
     if (isNaN(presupuesto) || presupuesto <= 0) {
         alert("El campo 'Presupuesto' debe ser un número positivo.");
         return false;
