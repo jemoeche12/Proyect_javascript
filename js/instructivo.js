@@ -23,10 +23,10 @@ function crearPasos(indicePaso) {
     buttonTextPasos.className = "buttonSiguiente";
     buttonTextPasos.textContent = tutorialPasos[indicePaso].buttonText;
     buttonTextPasos.onclick = indicePaso === tutorialPasos.length - 1 ? terminarTutorial : siguientePaso;
-    
-    
-    
-    divPasos.appendChild(imgPasos);  
+
+
+
+    divPasos.appendChild(imgPasos);
     divPasos.appendChild(titlePasos);
     divPasos.appendChild(contentPasos);
     divPasos.appendChild(buttonTextPasos);
@@ -44,7 +44,7 @@ function mostrarPaso() {
 }
 
 function siguientePaso() {
-    if (contador < tutorialPasos.length - 1) {  
+    if (contador < tutorialPasos.length - 1) {
         contador++;
         mostrarPaso();
     }
@@ -57,18 +57,23 @@ function terminarTutorial() {
 }
 
 function cargarTutorial() {
-    fetch('/data/tutorialPasos.json') 
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error al cargar el JSON');
-            }
-            return response.json();
-        })
-        .then(data => {
-            tutorialPasos = data.tutorialPasos;
-            mostrarPaso();
-        })
-        .catch(error => console.error('Error al cargar el JSON:', error));
+    try {
+        fetch('/data/tutorialPasos.json')
+            .then(respuesta => {
+                if (!respuesta.ok) {
+                    throw new Error('Error al cargar el JSON');
+                }
+                return respuesta.json();
+            })
+            .then(data => {
+                tutorialPasos = data.tutorialPasos;
+                mostrarPaso();
+            })
+
+    } catch {
+        (error => console.error('Error al cargar el JSON:', error));
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', cargarTutorial());
