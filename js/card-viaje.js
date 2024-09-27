@@ -82,7 +82,7 @@ function capturarId(e) {
         return { categoria, cantidad: tarjetaSeleccionada.gastos[categoria] };
       });
       const gastosTotalCategoria = gastosPorCategoria(gastosViajes, tipoGasto);
-      console.log(`El gasto total en ${tipoGasto} es: ${gastosTotalCategoria}`);
+      return `El gasto total en ${tipoGasto} es: ${gastosTotalCategoria}`;
     }
   }
 }

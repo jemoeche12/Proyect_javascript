@@ -1,6 +1,3 @@
-
-
-
 const formulario = document.getElementById('tarjetaDestino');
 let resultado = document.getElementById("result");
 
@@ -190,25 +187,6 @@ function validarFormulario() {
 function avisarTextoInvalido() {
     Swal.fire({
         title: " En destino, Debes ingresar texto, por favor",
-        showClass: {
-            popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `
-        },
-        hideClass: {
-            popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `
-        }
-    });
-}
-function ingresarNumeros(){
-    Swal.fire({
-        title: "Debes ingresar numeros, por favor",
         showClass: {
             popup: `
             animate__animated

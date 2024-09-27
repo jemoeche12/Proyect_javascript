@@ -56,24 +56,22 @@ function terminarTutorial() {
     }, 2000)
 }
 
-function cargarTutorial() {
+async function cargarTutorial() {
     try {
-        fetch('/data/tutorialPasos.json')
-            .then(respuesta => {
-                if (!respuesta.ok) {
-                    throw new Error('Error al cargar el JSON');
-                }
-                return respuesta.json();
-            })
-            .then(data => {
-                tutorialPasos = data.tutorialPasos;
-                mostrarPaso();
-            })
+        const respuesta = await fetch('/data/tutorialPasos.json');
+        
+        if (!respuesta.ok) {
+            throw new Error('Error al cargar el JSON');
+        }
 
-    } catch {
-        (error => console.error('Error al cargar el JSON:', error));
+        const data = await respuesta.json();
+        tutorialPasos = data.tutorialPasos;
+        mostrarPaso();
+
+    } catch (error) {
+        console.error('Error al cargar el JSON:', error);
     }
-
 }
+
 
 document.addEventListener('DOMContentLoaded', cargarTutorial());
